@@ -48,7 +48,7 @@ return (
         </div>
         <div className="input">
         
-        <input name="message" value="hello there" onChange={(e)=>setWord(e.target.value)} />
+        <input name="message" value={word} onChange={(e)=>setWord(e.target.value)} />
        
         </div>
 
