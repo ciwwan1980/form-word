@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import MainScreen from "./MainScreen"
 
 function Form () {
 const [message,setMessage]=useState("")
@@ -51,7 +52,7 @@ return (
 <article>
     <h1>Generate Password</h1>
     {
-        full? <h1>hello</h1>:<form onSubmit={handleSubmit} className="flex">
+        full? <MainScreen words={words}/>:<form onSubmit={handleSubmit} className="flex">
  
         <div className="container">
   
