@@ -1,16 +1,29 @@
 import React,{useState} from 'react';
 
-export default class Form extends Component {
+function Form () {
+const [message,setMessage]=useState("")
+const [words,setWords]=useState([])
+const [word,setWord]=useState("")
+const [full,setFull]=useState(false)
 
-    const []
-    render() {
-        return (
+
+ const handleSubmit=(event)=>{
+    event.preventDefault();
+      
+    }
+    
+    const addWord=()=>{
+    setWords(...words,word)
+    // setWord("")
+        }
+
+return (
             <div>
-              
+            
 <article>
     <h1>Generate Password</h1>
     
-  <form  className="flex">
+  <form onSubmit={handleSubmit} className="flex">
  
         <div className="container">
   
@@ -24,7 +37,7 @@ export default class Form extends Component {
        <div className="button">   
        <p></p>
         <button  >Shwo me the Message</button>
-        <button >Add new word</button>
+        <button onClick={addWord} >Add new word</button>
         </div>
   </div>
     </form> 
@@ -33,4 +46,5 @@ export default class Form extends Component {
             </div>
         )
     }
-}
+
+export default Form
