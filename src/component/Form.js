@@ -15,31 +15,43 @@ const [full,setFull]=useState(false)
      const  addWord=()=>{
 
         if(words.length<3){
-               setWords([...words,word])
-             setWord("")
+                setWords([...words,word])
+                console.log(words, "words..........")
+                console.log(word, "word..........")
+                setWord("")
         }
         if(words.length===2){
             setMessage("now you may click on show me messsage")
-          
             setTimeout(() => {
                 setMessage("")
             }, 3000);
             setWord("")
+           
         }
     
     }
 
-    const showMessage=()=>{
+     const showMessage=()=>{
 
-
+        if(words.length<3){
+        setMessage("please add atleast 3 words")
+        setTimeout(() => {
+            setMessage("")
+        }, 2000);
+        }else{
+            setFull(true)
+        }
+ 
+    
     }
 return (
             <div>
             
+
 <article>
     <h1>Generate Password</h1>
-    
-  <form onSubmit={handleSubmit} className="flex">
+    {
+        full? <h1>hello</h1>:<form onSubmit={handleSubmit} className="flex">
  
         <div className="container">
   
@@ -59,6 +71,8 @@ return (
         </div>
   </div>
     </form> 
+    }
+  
  
 </article>
             </div>
