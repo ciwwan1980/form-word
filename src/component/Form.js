@@ -12,11 +12,27 @@ const [full,setFull]=useState(false)
       
     }
     
-    const addWord=()=>{
-    setWords(...words,word)
-    // setWord("")
-        }
+     const  addWord=()=>{
 
+        if(words.length<3){
+               setWords([...words,word])
+             setWord("")
+        }
+        if(words.length===2){
+            setMessage("now you may click on show me messsage")
+          
+            setTimeout(() => {
+                setMessage("")
+            }, 3000);
+            setWord("")
+        }
+    
+    }
+
+    const showMessage=()=>{
+
+
+    }
 return (
             <div>
             
@@ -31,12 +47,14 @@ return (
         <label>Add word </label>
         </div>
         <div className="input">
-        <input name="message"  />
+        
+        <input name="message" value="hello there" onChange={(e)=>setWord(e.target.value)} />
+       
         </div>
 
        <div className="button">   
-       <p></p>
-        <button  >Shwo me the Message</button>
+       <p>{message}</p>
+        <button  onClick={showMessage} >Shwo me the Message</button>
         <button onClick={addWord} >Add new word</button>
         </div>
   </div>
